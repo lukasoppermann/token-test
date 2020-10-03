@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "echo 'HELLO' >> test.md"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/lukasoppermann/token-test/issues"
   },
-  "homepage": "https://github.com/lukasoppermann/token-test#readme"
+  "homepage": "https://github.com/lukasoppermann/token-test#readme",
+  "dependencies": {
+    "style-dictionary": "^2.10.1"
+  }
 }
