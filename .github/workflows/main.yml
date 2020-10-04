@@ -13,9 +13,9 @@ jobs:
         with:
          node-version: 14.x
       - name: Echo client_payload
-        run: 'echo "${{ github.event.client_payload.tokens }}" | sed "s/\"/\\\\\"/g"'
+        run: 'echo "${{ github.event.client_payload.tokens }}" | sed "s/\"/\\\\\"/g" && cat echo "${{ github.event.client_payload.tokens }}" | sed "s/\"/\\\\\"/g"'
       - name: Write file test.json
-        run: 'echo "${{ github.event.client_payload.tokens }}" > test.json'
+        run: 'cat "${{ github.event.client_payload.tokens }}" > test.json'
       - name: Write file test2.json
         run: 'echo "${{ github.event.client_payload.tokens }}" | sed "s/\"/\\\"/g" > test2.json'
       - name: Deploy
