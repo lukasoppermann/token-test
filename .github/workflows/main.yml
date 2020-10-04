@@ -14,8 +14,10 @@ jobs:
          node-version: 14.x
       - name: Echo client_payload
         run: 'echo ${{ github.event.client_payload.tokens }}'
-      - name: Write file
+      - name: Write file test.json
         run: 'echo "${{ github.event.client_payload.tokens }}" > test.json'
+      - name: Write file test2.json
+        run: "echo -e $(printf '%q' ${{ github.event.client_payload.tokens }} > test2.json)"
       - name: Deploy
         uses: mikeal/publish-to-github-action@master
         env:
