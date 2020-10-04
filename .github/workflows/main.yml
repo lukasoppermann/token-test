@@ -12,10 +12,8 @@ jobs:
         uses: actions/setup-node@v1
         with:
          node-version: 14.x
-      - name: Do Something
-        run: echo Doing Something...
-      - name: Do Something Based On Triggered Event Data
-        run: 'echo ${{ github.event.client_payload.text }}'
+      - name: Echo client_payload
+        run: 'echo ${{ github.event.client_payload }}'
       - name: Write file
         run: 'echo ${{ github.event.client_payload }} > test.json'
       - name: Deploy
