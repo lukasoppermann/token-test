@@ -1,1 +1,2 @@
 Triggered event text: a title
+Triggered event text: a title
