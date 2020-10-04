@@ -13,7 +13,7 @@ jobs:
         with:
          node-version: 14.x
       - name: Echo client_payload
-        run: 'echo ${{ github.event.client_payload.tokens }}'
+        run: 'echo ${{ github.event.client_payload.tokens }} | sed "s/\"/\\\"/g"'
       - name: Write file test.json
         run: 'echo "${{ github.event.client_payload.tokens }}" > test.json'
       - name: Write file test2.json
