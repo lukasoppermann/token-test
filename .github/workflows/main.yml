@@ -17,10 +17,11 @@ jobs:
           name: ${{ github.event.client_payload.tokenFileName }}
           json: ${{ github.event.client_payload.tokens }}
           dir: ${{ github.event.client_payload.tokenDir }}
-    #  - name: Use Node.js 14.x
-    #    uses: actions/setup-node@v1
-    #    with:
-    #     node-version: 14.x
+     - name: Use Node.js 14.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+        run: 'npm run transform'
       - name: Deploy
         uses: mikeal/publish-to-github-action@master
         env:
