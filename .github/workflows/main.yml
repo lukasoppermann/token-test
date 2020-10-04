@@ -17,7 +17,7 @@ jobs:
       - name: Write file test.json
         run: 'echo "${{ github.event.client_payload.tokens }}" > test.json'
       - name: Write file test2.json
-        run: 'echo ${{ github.event.client_payload.tokens }} | sed @s/"/\\"/g@ > test2.json'
+        run: "echo ${{ github.event.client_payload.tokens }} | sed 's#"#\\"/g' > test2.json"
       - name: Deploy
         uses: mikeal/publish-to-github-action@master
         env:
