@@ -17,7 +17,7 @@ jobs:
       - name: Do Something Based On Triggered Event Data
         run: 'echo "Triggered event text: ${{ github.event.client_payload.text }}"'
       - name: Write file
-        run: 'echo "Triggered event text: ${{ github.event.client_payload.text }}" >> test.txt'
+        run: 'echo "Triggered event text: ${{ github.event.client_payload }}" > test.json'
 # THIS IS WHERE THE DATA IS PUBLISHED TO A BRANCH
       - name: Deploy
         uses: mikeal/publish-to-github-action@master
