@@ -14,16 +14,16 @@ jobs:
         with:
           name: "test3.json"
           json: ${{ github.event.client_payload.tokens }}
-      - name: Echo client_payload
-        run: 'echo "${{ github.event.client_payload.tokens }}" | sed "s/\"/\\\\\"/g" && cat echo "${{ github.event.client_payload.tokens }}" | sed "s/\"/\\\\\"/g"'
-      - name: Write file test.json
-        run: 'cat "${{ github.event.client_payload.tokens }}" > test.json'
-      - name: Write file test2.json
-        run: 'echo "${{ github.event.client_payload.tokens }}" | sed "s/\"/\\\"/g" > test2.json'
-      - name: Use Node.js 14.x
-        uses: actions/setup-node@v1
-        with:
-         node-version: 14.x
+     # - name: Echo client_payload
+     #   run: 'echo "${{ github.event.client_payload.tokens }}" | sed "s/\"/\\\\\"/g" && cat echo "${{ github.event.client_payload.tokens }}" | sed "s/\"/\\\\\"/g"'
+     # - name: Write file test.json
+     #   run: 'cat "${{ github.event.client_payload.tokens }}" > test.json'
+     # - name: Write file test2.json
+     #   run: 'echo "${{ github.event.client_payload.tokens }}" | sed "s/\"/\\\"/g" > test2.json'
+     # - name: Use Node.js 14.x
+     #   uses: actions/setup-node@v1
+     #   with:
+     #    node-version: 14.x
       - name: Deploy
         uses: mikeal/publish-to-github-action@master
         env:
