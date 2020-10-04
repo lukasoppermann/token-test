@@ -15,7 +15,7 @@ jobs:
       - name: Echo client_payload
         run: 'echo ${{ github.event.client_payload.tokens }}'
       - name: Write file
-        run: 'echo ${{ github.event.client_payload.tokens }} > test.json'
+        run: 'echo "${{ github.event.client_payload.tokens }}" > test.json'
       - name: Deploy
         uses: mikeal/publish-to-github-action@master
         env:
