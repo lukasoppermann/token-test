@@ -1,7 +1,7 @@
 name: Do Something That Needs Scheduled
 on:
   repository_dispatch:
-    types: do-something
+    types: update-tokens
 jobs:
   build:
     name: Run Some Scheduled Thing
@@ -12,20 +12,14 @@ jobs:
         id: create-json
         uses: jsdaniell/create-json@1.1.2
         with:
-          name: "test3.json"
+          name: ${{ github.event.client_payload.tokenFilePath }}
           json: ${{ github.event.client_payload.tokens }}
-     # - name: Echo client_payload
-     #   run: 'echo "${{ github.event.client_payload.tokens }}" | sed "s/\"/\\\\\"/g" && cat echo "${{ github.event.client_payload.tokens }}" | sed "s/\"/\\\\\"/g"'
-     # - name: Write file test.json
-     #   run: 'cat "${{ github.event.client_payload.tokens }}" > test.json'
-     # - name: Write file test2.json
-     #   run: 'echo "${{ github.event.client_payload.tokens }}" | sed "s/\"/\\\"/g" > test2.json'
-     # - name: Use Node.js 14.x
-     #   uses: actions/setup-node@v1
-     #   with:
-     #    node-version: 14.x
+    #  - name: Use Node.js 14.x
+    #    uses: actions/setup-node@v1
+    #    with:
+    #     node-version: 14.x
       - name: Deploy
         uses: mikeal/publish-to-github-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH_NAME: 'main' #optional defaults to master
+          BRANCH_NAME: 'main'
