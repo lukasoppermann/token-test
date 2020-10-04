@@ -8,6 +8,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
+      - name: mkdir token directory
+        run: 'mkdir -p ${{ github.event.client_payload.tokenDir }}'
       - name: create-json
         id: create-json
         uses: jsdaniell/create-json@1.1.2
