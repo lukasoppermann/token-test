@@ -22,7 +22,7 @@ jobs:
         with:
           node-version: 14.x
       - name: Transform design tokens 
-        run: 'npm run transform'
+        run: 'npm i && npm run transform'
       - name: Deploy
         uses: mikeal/publish-to-github-action@master
         env:
