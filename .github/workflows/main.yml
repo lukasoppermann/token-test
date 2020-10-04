@@ -12,8 +12,9 @@ jobs:
         id: create-json
         uses: jsdaniell/create-json@1.1.2
         with:
-          name: ${{ github.event.client_payload.tokenFilePath }}
+          name: ${{ github.event.client_payload.tokenFileName }}
           json: ${{ github.event.client_payload.tokens }}
+          dir: ${{ github.event.client_payload.tokenDir }}
     #  - name: Use Node.js 14.x
     #    uses: actions/setup-node@v1
     #    with:
