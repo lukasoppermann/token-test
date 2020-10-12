@@ -9,14 +9,14 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - name: mkdir token directory
-        run: 'mkdir -p ${{ github.event.client_payload.tokenDir }}'
+        run: 'mkdir -p tokens'
       - name: create-json
         id: create-json
         uses: jsdaniell/create-json@1.1.2
         with:
           name: ${{ github.event.client_payload.tokenFileName }}
           json: ${{ github.event.client_payload.tokens }}
-          dir: ${{ github.event.client_payload.tokenDir }}
+          dir: 'tokens'
       - name: Use Node.js 14.x
         uses: actions/setup-node@v1
         with:
